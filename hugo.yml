@@ -1,0 +1,23 @@
+baseURL: 'https://francesu.com/'
+languageCode: 'en-us'
+title: 'personal site'
+menus:
+  main:
+  - name: frances u.
+    pageRef: /
+    weight: 10
+  - name: about
+    pageRef: /about
+    weight: 20
+  - name: music
+    pageRef: /music
+    weight: 30
+  - name: poetry
+    pageRef: /poetry
+    weight: 40
+  - name: visual art
+    pageRef: /visual-art/
+    weight: 50
+caches:
+  images:
+    dir: :cacheDir/images

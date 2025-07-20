@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <header>
+    {{ partial "nav.html" . }}
+  </header>
+  <main>
+    <section>
+      {{ .Content }}
+    </section>
+  </main>
+{{ end }}

@@ -1,0 +1,12 @@
+{{- $currentPage := . }}
+
+<nav style="display: flex; gap: 20px;">
+  {{- range site.Menus.main }}
+    {{- if $currentPage.IsMenuCurrent .Menu . }}
+	<!-- show nothing -->
+    {{- else }}
+      <a href="{{ .URL }}">{{ .Name }}</a>
+    {{- end }}
+  {{- end }}
+</nav>
+
