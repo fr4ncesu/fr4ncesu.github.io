@@ -40,6 +40,11 @@ ul {
   color: #a9a9a9;
 }
 
+section img {
+  width: 100%;
+  display: block;
+}
+
 header {
   max-width: 650px;
   margin: 0 auto;
