@@ -1,6 +1,5 @@
 baseURL: 'https://francesu.com/'
 languageCode: 'en-us'
-title: 'personal site'
 menus:
   main:
   - name: frances u.
