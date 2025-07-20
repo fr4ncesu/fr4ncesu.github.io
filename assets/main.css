@@ -36,6 +36,10 @@ ul {
   list-style: circle;
 }
 
+.sub {
+  color: #a9a9a9;
+}
+
 header {
   max-width: 650px;
   margin: 0 auto;

@@ -2,8 +2,6 @@
 title: about
 ---
 
-# about
-
 f. ulrike / frances u. / frances ulrika is located in philadelphia and is from texas. this is kat speaking now, and i am putting more text here so we can get to the next line and check out what the line height is looking like.
 
 you can reach her at fr4nces.u@gmail.com

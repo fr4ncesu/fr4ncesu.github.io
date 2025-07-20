@@ -1,9 +1,12 @@
 {{ define "main" }}
   {{ partial "header.html" . }}
   <main>
-    <section class="custom-list">
+    <section>
       {{ if .Title }}
         <h1>{{ .Title }}</h1>
+      {{ end }}
+      {{ if .Date }}
+        <p style="margin-top: -40px;" class="sub">{{ time.Format "January 2, 2006" .Date | lower }}</p>
       {{ end }}
       {{ .Content }}
     </section>
