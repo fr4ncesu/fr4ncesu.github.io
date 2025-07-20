@@ -1,6 +1,6 @@
 # fr4ncesu.github.io
-personal site
 
+personal site using hugo
 
 ## kat notes
 
