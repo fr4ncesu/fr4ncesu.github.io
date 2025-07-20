@@ -1,22 +1,20 @@
 baseURL: 'https://francesu.com/'
 languageCode: 'en-us'
+title: 'frances u.'
 menus:
   main:
-  - name: frances u.
-    pageRef: /
-    weight: 10
   - name: about
     pageRef: /about
-    weight: 20
+    weight: 10
   - name: music
     pageRef: /music
-    weight: 30
+    weight: 20
   - name: poetry
     pageRef: /poetry
-    weight: 40
+    weight: 30
   - name: visual art
     pageRef: /visual-art/
-    weight: 50
+    weight: 40
 caches:
   images:
     dir: :cacheDir/images

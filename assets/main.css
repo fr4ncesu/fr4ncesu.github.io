@@ -42,9 +42,38 @@ header {
   padding: 30px;
 }
 
+header.main {
+  display: flex;
+}
+
+header.main > a {
+  text-decoration: none;  
+  flex-grow: 1; 
+}
+
+header.main nav {
+  display: flex;
+  column-gap: 20px;
+  flex-wrap: wrap;
+}
+
+@media all and (max-width: 600px) {
+  header.main {
+    display: block;
+  }
+}
+
 section {
   max-width: 650px;
   margin: 0 auto;
   padding: 30px;
 }
 
+section.custom-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+section.custom-list ul li {
+  margin-bottom: 10px;
+}

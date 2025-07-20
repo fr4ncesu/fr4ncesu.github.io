@@ -1,6 +1,6 @@
 {{ define "main" }}
-  <header>
-    <div style="text-align: center;">frances u. / frances ulrika</div>
+  <header style="text-align: center;">
+    frances u. / frances ulrika
   </header>
   <main>
 
@@ -13,10 +13,9 @@
 	
     <section>
       <ul>
-        <li><a href="/about/">about</a></li>
-        <li><a href="/music/">music</a></li>
-        <li><a href="/poetry/">poetry</a></li>
-        <li><a href="/visual-art/">visual art</a></li>
+        {{- range site.Menus.main }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{- end }}
       </ul>
     </section>
   </main>
