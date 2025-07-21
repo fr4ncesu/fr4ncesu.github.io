@@ -8,6 +8,10 @@ this one really came from the heart. i put everything i had into this song. and 
 
 i don't know how to eat crayons and better than the next person, but it really hurts when i see her doing that.
 
+{{< bandcamp caption="hey there" >}}
+<iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=1076351671/size=small/bgcol=333333/linkcol=ffffff/transparent=true/" seamless><a href="https://vulfpeck.bandcamp.com/album/clarity-of-cal">Clarity of Cal by Vulfpeck</a></iframe>
+{{< /bandcamp >}}
+
 ## chapter 2
 
 id really love it if she would stop eating my crayons. every time i want to use the color green, i can't find any and i have to use blue and yellow instead. green must be her favorite color to taste on her lips and in her mouth.

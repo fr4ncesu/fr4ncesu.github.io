@@ -13,12 +13,12 @@ h1, h2, h3 {
   font-weight: 300;
 }
 
-h1 {
-  font-size: 2.5rem;
+h4, h5, h6 {
+  font-weight: 400;
 }
 
-h2 {
-  font-size: 1.8rem;
+h1 {
+  font-size: 2.5rem;
 }
 
 a {
@@ -41,8 +41,8 @@ ul {
 }
 
 section img {
-  width: 100%;
-  display: block;
+  max-width: 100%;
+  display: inline-block;
 }
 
 header {
@@ -72,17 +72,76 @@ header.main nav {
   }
 }
 
+main {
+  padding-bottom: 100px;
+}
+
 section {
   max-width: 650px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 0 30px;
 }
 
-section.custom-list ul {
+section.section-list ul {
   list-style: none;
   padding: 0;
 }
 
-section.custom-list ul li {
+section.section-list ul li {
   margin-bottom: 10px;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  line-height: 1;
+  font-size: 1rem;
+  color: #a9a9a9;
+}
+
+/* the built in hugo shortcode for figure uses a paragraph tag
+ * inside of figcaption */
+figcaption p {
+  margin: 0;
+}
+
+figure.left { text-align: left; }
+figure.center { text-align: center; }
+figure.right { text-align: right; }
+
+blockquote {
+  background-color: #373737;
+  margin: 0;
+  padding: 0.1rem 1.5rem;
+  border-left: 4px solid #5d5d5d;
+}
+
+div.gallery {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  flex-wrap: wrap;
+  row-gap: 40px;
+  column-gap: 20px;
+  justify-content: space-around;
+}
+
+div.gallery figure {
+  width: 300px;
+}
+
+div.gallery img {
+  max-width: 100%;
+}
+
+div.gallery figcaption {
+  font-size: inherit;
+}
+
+div.gallery p {
+  font-size: 1rem;
+  margin: 0;
 }

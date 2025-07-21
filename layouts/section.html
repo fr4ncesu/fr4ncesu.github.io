@@ -1,0 +1,9 @@
+{{ define "main" }}
+  {{ partial "header.html" . }}
+  <main>
+    <section class="section-list">
+      {{ if .Title }}<h1>{{ .Title }}</h1>{{ end }}
+      {{ .Content }}
+    </section>
+  </main>
+{{ end }}

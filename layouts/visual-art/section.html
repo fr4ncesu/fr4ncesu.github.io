@@ -1,0 +1,21 @@
+{{ define "main" }}
+  {{ partial "header.html" . }}
+  <main>
+    <section>
+      {{ if .Title }}<h1>{{ .Title }}</h1>{{ end }}
+      {{ .Content }}
+    </section>
+
+    <div class="gallery">
+      {{ range .Pages }}
+	<figure>
+          <a href="{{ .RelPermalink }}">
+	    <img src="{{ .Path}}/{{ .Params.image }}" />
+          </a>
+          <figcaption><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></figcaption>
+	  <p>{{ time.Format "January 2, 2006" .Date | lower }}</p>
+	</figure>
+      {{ end }}
+    </div>
+  </main>
+{{ end }}
