@@ -2,11 +2,17 @@
 title: about
 ---
 
-f. ulrike / frances u. / frances ulrika is located in philadelphia and is from texas. this is kat speaking now, and i am putting more text here so we can get to the next line and check out what the line height is looking like.
+frances ulrike / frances u. / frances ulrika is located in philadelphia and is from texas.
 
 you can reach her at fr4nces.u@gmail.com
 
-## a second header
+lately, she has been reading/listening/watching/thinking about:
+- [**peter hammill/van der graaf generator**](https://www.youtube.com/watch?v=N-TXKdoi8WQ&ab_channel=cykusz1)
+- **charly garcia**
+- **roberto bolaño - *los perros romanticos***
+- **alejandra pizarnik - *árbol de diana***
+- **alan vega/suicide**
+- **david lynch - inland empire**
+- [**antonello venditti - grazie roma**](https://www.youtube.com/watch?v=kVxs-ngkCUU&ab_channel=vendittiVEVO)
 
-the above tag is using an header two element instead of a header one. also you can [click here](https://google.com) to go to a different website if you wanna.
-hi kat
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kVxs-ngkCUU?si=Y7JglPfYcUVycXuG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
