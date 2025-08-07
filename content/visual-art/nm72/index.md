@@ -1,7 +1,7 @@
 ---
-date: '2016-02-19'
+date: '2023-12-12'
 title: 'i told you...'
-draft: true
+draft: false
 image: 'mzd.jpg'
 ---
 
