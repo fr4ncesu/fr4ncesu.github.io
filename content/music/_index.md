@@ -2,4 +2,11 @@
 title: music
 ---
 
-Moraine Assembly - ["Big Art" EP](/music/big-art) coming soon...
+{{< figure
+  src="ma-ba2.png"
+  width="500px"
+  alt="big art"
+  link="ma-ba2.png"
+  caption="Moraine Assembly - ["Big Art" EP](/music/big-art) coming soon..."
+  class="left"
+>}}

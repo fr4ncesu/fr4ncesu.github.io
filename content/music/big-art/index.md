@@ -6,11 +6,12 @@ draft: false
 
 {{< figure
   src="ma-ba2.png"
-  width="300px"
+  width="500px"
   alt="big art"
   link="ma-ba2.png"
-  caption="the debut EP by Wes Willgrubs and Frances Ulrika"
+  caption=""
   class="center"
 >}}
 
+the debut EP by Wes Willgrubs and Frances Ulrika
 coming soon...
