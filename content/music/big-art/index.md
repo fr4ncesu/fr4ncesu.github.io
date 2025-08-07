@@ -12,6 +12,3 @@ draft: false
   caption=""
   class="center"
 >}}
-
-the debut EP by Wes Willgrubs and Frances Ulrika
-coming soon...
