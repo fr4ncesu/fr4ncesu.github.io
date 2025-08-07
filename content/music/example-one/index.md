@@ -1,7 +1,7 @@
 ---
 date: '2025-07-21'
 title: 'this is the title'
-draft: false
+draft: true
 ---
 
 here is some paragraph text. i am going to keep putting stuff here so everything is all good and cool. check out this cool bandcamp snippet:
