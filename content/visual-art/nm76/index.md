@@ -1,7 +1,7 @@
 ---
 date: '2020-02-19'
 title: 'NM76'
-draft: false
+draft: true
 image: 'image.jpg'
 ---
 
