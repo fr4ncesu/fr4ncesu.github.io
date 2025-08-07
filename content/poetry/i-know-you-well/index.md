@@ -1,7 +1,7 @@
 ---
 date: '2021-04-12'
 title: 'i know you well'
-draft: false
+draft: true
 ---
 
 maybe too well. maybe not well enough? either way, i can't color green anymore.
