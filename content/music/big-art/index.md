@@ -4,6 +4,13 @@ title: 'moraine assembly - big art EP'
 draft: false
 ---
 
-the debut EP by Wes Willgrubs and Frances Ulrika
+{< figure
+  src="ma-ba2.png"
+  width="300px"
+  alt="big art"
+  link="ma-ba2.png"
+  caption="the debut EP by Wes Willgrubs and Frances Ulrika"
+  class="center"
+>}}
 
 coming soon...
