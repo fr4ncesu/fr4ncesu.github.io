@@ -1,14 +1,14 @@
 ---
-date: '2021-08-06'
+date: '2025-08-06'
 title: 'return to new dream jersey'
 draft: false
 ---
 
 {{< figure
-  src="ndjclear.png"
+  src="ndjclear2.png"
   width="300px"
   alt="the cover of return to new dream jersey"
-  link="ndjclear.png"
-  caption=""
+  link="ndjclear2.png"
+  caption="*new dream jersey*"
   class="center"
 >}}
