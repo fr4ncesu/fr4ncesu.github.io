@@ -15,5 +15,3 @@ lately, she has been reading/listening/watching/thinking about:
 - [**alan vega/suicide**](https://www.youtube.com/watch?v=6S3O2oUuxow&ab_channel=Suicide-Topic)
 - **david lynch - inland empire**
 - [**antonello venditti - grazie roma**](https://www.youtube.com/watch?v=kVxs-ngkCUU&ab_channel=vendittiVEVO)
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kVxs-ngkCUU?si=m0nvh_PMfwowDNSZ&amp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
