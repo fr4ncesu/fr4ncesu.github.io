@@ -4,11 +4,3 @@ title: 'return to new dream jersey'
 draft: true
 ---
 
-{{< figure
-  src="ndjclear.png"
-  width="300px"
-  alt="the cover of return to new dream jersey"
-  link="ndjclear.png"
-  caption=""
-  class="center"
->}}
