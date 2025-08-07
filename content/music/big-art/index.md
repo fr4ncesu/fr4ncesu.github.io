@@ -4,7 +4,7 @@ title: 'moraine assembly - big art EP'
 draft: false
 ---
 
-{< figure
+{{< figure
   src="ma-ba2.png"
   width="300px"
   alt="big art"
