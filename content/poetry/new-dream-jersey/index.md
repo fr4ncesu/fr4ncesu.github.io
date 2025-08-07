@@ -1,5 +1,5 @@
 ---
-date: '2025-08-06'
+date: '2025-07-19'
 title: 'return to new dream jersey'
 draft: false
 ---
@@ -11,6 +11,5 @@ draft: false
   width="300px"
   alt="the cover of return to new dream jersey"
   link="ndjclear2.png"
-  caption="*new dream jersey*"
   class="center"
 >}}
