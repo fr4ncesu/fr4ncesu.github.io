@@ -1,7 +1,7 @@
 ---
 date: '2025-07-20'
 title: 'im coming for you'
-draft: false
+draft: true
 ---
 
 this one really came from the heart. i put everything i had into this song. and by that, i mean i put absolutely fucking nothing into this song. god, someone please help. i just need someone to take out my trash or clean my dishes. someone to think about when im sitting alone at the coffee shop.
