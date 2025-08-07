@@ -1,10 +1,11 @@
 ---
 date: '2016-02-19'
-title: 'NM72'
+title: 'i told you...'
 draft: true
-image: 'image.jpg'
+image: 'mzd.jpg'
 ---
 
 {{< figure
-  src="image.jpg"
+  src="mzd.jpg"
+  caption="i told you..."
 >}}
