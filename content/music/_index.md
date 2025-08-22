@@ -9,4 +9,4 @@ title: music
   link="ma-ba2.png"
   caption=""
 >}}
-Moraine Assembly - "Big Art" EP coming soon...
+Moraine Assembly - "Big Art" EP
