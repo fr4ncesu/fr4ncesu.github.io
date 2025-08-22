@@ -17,6 +17,7 @@ draft: false
 released August 22, 2025
 
 **Wesley Willgrubs** - vocals, lyrics, guitar (track 1), beeps (track 4)
+
 **Frances Ulrika** - bass, synthesizers, guitar (track 2-4), melodica (track 1), drum sequencing
 
 “Mixed” and “Mastered” at So-So Studio, Philadelphia, PA. Recorded between April 2024 and July 2025.
