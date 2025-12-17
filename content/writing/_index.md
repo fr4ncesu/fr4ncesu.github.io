@@ -1,6 +1,9 @@
 ---
-title: poetry
+title: writing
 ---
+
+# plays
+- *The Gourmand's Curse*, December 2025
 
 # collections
 - [*Return to New Dream Jersey*](/poetry/new-dream-jersey/), July 2025
