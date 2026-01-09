@@ -7,9 +7,9 @@ draft: false
 18 poems from another new jersey. email fr4nces.u [at] gmail.com for a copy.
 
 {{< figure
-  src="ndjclear2.png"
+  src="ndj-new.png"
   width="300px"
   alt="the cover of return to new dream jersey"
-  link="ndjclear2.png"
+  link="ndj-new.png"
   class="center"
 >}}
