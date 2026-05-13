@@ -4,7 +4,7 @@ title: 'return to new dream jersey'
 draft: false
 ---
 
-18 poems from another new jersey. email fr4nces.u [at] gmail.com for a copy.
+18 poems from another new jersey. email francesu [at] proton.me for a free copy.
 
 {{< figure
   src="ndj-new (1).png"
