@@ -13,4 +13,5 @@ title: writing
 
 # readings
 - Poet's Row @ FaceClock Gallery | Phila., PA | May 18, 2025
-- Poetry Night @ Char & Stave | Ardmore, PA | February 19, 2026
+- Poetry Night @ Char & Stave | Ardmore, PA | Feb. 19, 2026
+- Discount Guillotine @ Neon Clown Dream Lounge | Phila., PA | Jun. 17, 2026
