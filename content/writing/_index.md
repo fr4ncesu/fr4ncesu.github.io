@@ -10,3 +10,7 @@ title: writing
 
 # poems
 - "Ashtray Blvd." - [poet's row](https://poetsrowcollective.com/Frances-U), fall 2024
+
+# readings
+- Poet's Row @ FaceClock Gallery | Phila., PA | May 18, 2025
+- Poetry Night @ Char & Stave | Ardmore, PA | February 19, 2026
