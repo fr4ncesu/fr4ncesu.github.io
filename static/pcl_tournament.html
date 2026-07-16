@@ -440,6 +440,9 @@ body:not(.boardmode) .shell{ margin:0 auto; overflow-x:auto; }
 .tossfoot{ margin-top:18px; font-family:'Saira'; font-size:11px;
   color:var(--faint); letter-spacing:2px; }
 
+/* clinched: discs that will never be thrown */
+#boardView .soslot.dead{ opacity:0.28; border-style:dashed; }
+
 </style>
 </head>
 <body>
@@ -462,6 +465,7 @@ body:not(.boardmode) .shell{ margin:0 auto; overflow-x:auto; }
         <div class="fieldbtns">
           <button id="rmBtn" class="mini">&minus; SEED</button>
           <button id="addBtn" class="mini">+ SEED</button>
+          <button id="fsBtn2" class="mini">FULLSCREEN</button>
           <button id="setBtn2" class="mini">SETTINGS</button>
           <button id="resetBtn" class="mini danger">RESET</button>
         </div>
@@ -577,7 +581,7 @@ body:not(.boardmode) .shell{ margin:0 auto; overflow-x:auto; }
     </div>
     <div class="foot">
       <span>SINGLE ELIMINATION &middot; BO3 &middot; FINAL BO5</span>
-      <span><button id="editBtn" class="mini">EDIT FIELD</button></span>
+      <span><button id="fsBtn3" class="mini">FULLSCREEN</button> <button id="editBtn" class="mini">EDIT FIELD</button></span>
     </div>
   </div>
 
@@ -726,7 +730,11 @@ const PCL_LOGO = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA1cAAASOCAYAAAAp
 
 document.getElementById('pclLogo').src = PCL_LOGO;
 const clubKeys = Object.keys(CLUB_DATA);
-const GUEST = { name:'Guest', full:'Guest', color:'#20242C', text:'#CFD4DC', cap:'#8B93A0', keyline:'#4A525F',
+/* Display name only — the club KEY stays 'guest' so every roster already saved
+   on the tableside laptop still resolves. "Independent" over "Guest" because a
+   club-less player is a real competitor, not a visitor; the Olympics march
+   athletes without a federation as Independent for the same reason. */
+const GUEST = { name:'Independent', full:'Independent', color:'#20242C', text:'#CFD4DC', cap:'#8B93A0', keyline:'#4A525F',
   img:'data:image/svg+xml;base64,'+btoa('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120"><path d="M6 14 L94 14 L94 66 Q94 96 50 114 Q6 96 6 66 Z" fill="none" stroke="#7C8593" stroke-width="4" stroke-dasharray="6 5"/><text x="50" y="70" font-size="34" text-anchor="middle" fill="#7C8593" font-family="Arial">?</text></svg>') };
 function club(k){ return k==='guest' ? GUEST : CLUB_DATA[k]; }
 
@@ -1214,7 +1222,7 @@ function derive(){
 }
 
 function fillClubSelect(sel){ sel.innerHTML='';
-  const g=document.createElement('option'); g.value='guest'; g.textContent='Guest / No Crest'; sel.appendChild(g);
+  const g=document.createElement('option'); g.value='guest'; g.textContent='Independent'; sel.appendChild(g);
   clubKeys.forEach(k=>{ const o=document.createElement('option'); o.value=k; o.textContent=club(k).name; sel.appendChild(o); }); }
 const clubA=document.getElementById('clubA'), clubB=document.getElementById('clubB');
 fillClubSelect(clubA); fillClubSelect(clubB);
@@ -1522,24 +1530,39 @@ function soCount(leg){
 function soDerive(){
   if(!S.so) return null;
   const leg = soLeg(), c = soCount(leg);
-  const full = leg.shots.length >= leg.n * 2;
-  let w = null, needLeg = false;
-  if(full){
+  const thrown = leg.shots.length;
+  const aThrown = S.so.first === 'A' ? Math.ceil(thrown/2) : Math.floor(thrown/2);
+  const bThrown = thrown - aThrown;
+  const aLeft = leg.n - aThrown, bLeft = leg.n - bThrown;
+  const full = thrown >= leg.n * 2;
+
+  /* Clinch, exactly as a penalty shootout stops the moment one side cannot be
+     caught. Sound here for the same reason it is there: no sequence of the
+     remaining discs changes the winner. Valid shots cannot rescue it either —
+     valid is only consulted when the 20s are level, and a clinch means they no
+     longer can be. */
+  const clinch = c.a20 > c.b20 + bLeft ? 'A' : (c.b20 > c.a20 + aLeft ? 'B' : null);
+
+  let w = clinch, needLeg = false;
+  if(!w && full){
     if(c.a20 !== c.b20) w = c.a20 > c.b20 ? 'A' : 'B';
     else if(c.aV !== c.bV) w = c.aV > c.bV ? 'A' : 'B';
     else needLeg = true;                                  /* dead level: restart at 4 */
   }
   return { first:S.so.first, legN:S.so.legs.length, n:leg.n, shots:leg.shots,
-           a20:c.a20, b20:c.b20, aV:c.aV, bV:c.bV, full:full, w:w, needLeg:needLeg,
-           turn: full ? null : soSideAt(leg.shots.length),
+           a20:c.a20, b20:c.b20, aV:c.aV, bV:c.bV,
+           full:full, w:w, needLeg:needLeg,
+           clinched: !!clinch && !full,       /* decided with discs still in hand */
+           aLeft:aLeft, bLeft:bLeft,
+           turn: (w || full) ? null : soSideAt(thrown),
            /* valid only matters while the 20s are level — light it exactly then */
-           level: leg.shots.length > 0 && c.a20 === c.b20 };
+           level: thrown > 0 && c.a20 === c.b20 };
 }
 
 function soToss(first){ snapshot(); S.so = soFresh(first); render(); save(); }
 
 function soPush(o){
-  const d = soDerive(); if(!d || d.full) return;
+  const d = soDerive(); if(!d || d.w || d.full) return;   /* clinched: no dead discs */
   snapshot();
   soLeg().shots.push(o);
   if(soDerive().needLeg) S.so.legs.push({ n:SO_NL, shots:[] });
@@ -1635,8 +1658,10 @@ function soPaintStrip(so, ca, cb){
       /* the k-th shot for this side sits at index 2k (or 2k+1) depending on the toss */
       const idx = (side === so.first) ? k*2 : k*2 + 1;
       const o = so.shots[idx];
-      const live = !so.full && so.turn === side && so.shots.length === idx;
-      cells += '<div class="soslot' + (o ? ' o' + o : '') + (live ? ' live' : '') + '">' +
+      const live = !so.w && !so.full && so.turn === side && so.shots.length === idx;
+      const dead = !o && !!so.w;            /* clinched — these will never be thrown */
+      cells += '<div class="soslot' + (o ? ' o' + o : '') + (live ? ' live' : '') +
+               (dead ? ' dead' : '') + '">' +
                (o === '2' ? '20' : o === 'V' ? '\u00b7' : o === 'M' ? '\u00d7' : '') + '</div>';
     }
     return '<div class="sorow' + (so.turn === side ? ' turn' : '') + '">' +
@@ -1646,7 +1671,7 @@ function soPaintStrip(so, ca, cb){
       '<div class="soslots">' + cells + '</div></div>';
   }).join('');
   strip.innerHTML =
-    '<div class="sohdr"><span>SHOOTOUT</span><span>' +
+    '<div class="sohdr"><span>SHOOTOUT' + (so.clinched ? ' \u00b7 CLINCHED' : '') + '</span><span>' +
       (so.legN > 1 ? 'LEG ' + so.legN + ' \u00b7 ' : '') + so.n + ' DISCS EACH</span></div>' +
     rows;
 }
@@ -1768,7 +1793,7 @@ function fillClubSelect(sel){
   clubKeys.forEach(k => { const o = document.createElement('option');
     o.value = k; o.textContent = club(k).name; sel.appendChild(o); });
   const g = document.createElement('option'); g.value = 'guest';
-  g.textContent = 'Guest / No Crest'; sel.appendChild(g);
+  g.textContent = 'Independent'; sel.appendChild(g);
 }
 
 /* ---------- warnings ---------- */
@@ -1876,6 +1901,13 @@ document.getElementById('genBtn').addEventListener('click', () => {
 document.getElementById('setBtn2').addEventListener('click',
   () => document.getElementById('setBtn').click());
 
+/* Fullscreen was on the board's ops row only, so the bracket — the thing anyone
+   actually watches — could not go fullscreen. Same handler, three triggers. */
+['fsBtn2','fsBtn3'].forEach(function(id){
+  var el = document.getElementById(id);
+  if(el) el.addEventListener('click', () => document.getElementById('fsBtn').click());
+});
+
 document.getElementById('editBtn').addEventListener('click', () => showView('setup'));
 document.getElementById('backBtn').addEventListener('click', () => showView('bracket'));
 document.getElementById('addBtn').addEventListener('click', () => {
@@ -1921,6 +1953,10 @@ function openMatch(id){
 
   /* Resume, don't restart. Glancing at the bracket mid-match and clicking back in
      must not throw away the rounds already played — or a shootout in progress. */
+  /* the paste row belongs to the LAST match — clear it, don't just hide it */
+  document.getElementById('copyRow').style.display = 'none';
+  document.getElementById('copyText').value = '';
+
   if(S.mid === id && !S.locked){ save(); syncInputs(); showView('board'); render(); return; }
 
   S = freshState(false);
