@@ -1568,21 +1568,35 @@ function soStrings(){
   return { a:a.join(' | '), b:b.join(' | ') };
 }
 
-/* ---------- the layer ---------- */
+/* ---------- the layer ----------
+   This borrows the board's own cells rather than drawing its own. Anything it
+   changes it must change BACK on every render, not only on the way in: the board
+   is reused for the next match, and a layer that only ever paints its "on" state
+   leaves VALID sitting over the 20s for the rest of the night. */
 function soRender(d){
   const need = d.over && d.w === 'draw';
-  const toss = document.getElementById('tossWrap');
-  const strip = document.getElementById('sostrip');
-  const grid = document.getElementById('grid');
+  const on = need && !!S.so;
+  const so = on ? soDerive() : null;
 
-  toss.classList.toggle('open', need && !S.so && !S.locked);
+  document.getElementById('tossWrap').classList.toggle('open', need && !S.so && !S.locked);
   if(need && !S.so) soPaintToss();
 
-  if(!need || !S.so){ strip.style.display = 'none'; grid.style.display = ''; return; }
-  grid.style.display = 'none'; strip.style.display = '';
+  /* the 20s boxes are the board's — hand them back */
+  ['A','B'].forEach(side => {
+    const box = document.getElementById('s20Cell' + side).querySelector('.s20box');
+    box.querySelector('.slbl').textContent = on ? 'VALID' : '20s';
+    box.classList.toggle('solive', !!(on && so.level));
+    if(on) box.querySelector('.sval').textContent = (side === 'A' ? so.aV : so.bV);
+  });
 
-  const so = soDerive();
-  const ca = club(S.a.club), cb = club(S.b.club);
+  /* the centre cell is the board's too */
+  const ties = document.getElementById('ties');
+  ties.classList.toggle('sodim', on);
+  if(on) ties.textContent = d.aR + '\u2013' + d.ties + '\u2013' + d.bR;
+
+  document.getElementById('grid').style.display = on ? 'none' : '';
+  document.getElementById('sostrip').style.display = on ? '' : 'none';
+  if(!on) return;
 
   /* the numerals that carried W and L now carry the 20s */
   document.getElementById('winsA').textContent = so.a20;
@@ -1590,20 +1604,7 @@ function soRender(d){
   document.getElementById('diffCellA').innerHTML = '';
   document.getElementById('diffCellB').innerHTML = '';
 
-  /* the match recedes to a dim summary in the centre */
-  document.getElementById('ties').textContent =
-    d.aR + '\u2013' + d.ties + '\u2013' + d.bR;
-  document.getElementById('ties').classList.add('sodim');
-
-  /* the 20s boxes become VALID, lit only while the 20s are level */
-  [['A', so.aV], ['B', so.bV]].forEach(([side, v]) => {
-    const box = document.getElementById('s20Cell' + side).querySelector('.s20box');
-    box.querySelector('.slbl').textContent = 'VALID';
-    box.querySelector('.sval').textContent = v;
-    box.classList.toggle('solive', so.level);
-  });
-
-  soPaintStrip(so, ca, cb);
+  soPaintStrip(so, club(S.a.club), club(S.b.club));
 }
 
 function soPaintToss(){
